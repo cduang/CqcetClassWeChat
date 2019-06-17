@@ -14,6 +14,9 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+let fun = function() {
+  console.log("hello world");
+}
 module.exports = {
   formatTime: formatTime
 }
