@@ -1,0 +1,6 @@
+<!-- 自定义 components   -->
+
+<view class='nav-wrapper' style='height:{{navHeight}}px;background-color:{{navColor}}'>
+  <view class='login-icon' bindtap='fuck'></view>
+  <text class='title' >CQCET课程表</text>
+</view>

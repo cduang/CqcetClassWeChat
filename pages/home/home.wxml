@@ -1,0 +1,30 @@
+<!-- 自定定导航组件 -->
+<nav-bar>
+</nav-bar>
+
+<view class="container">
+
+  <view class='top-week-scroll'>
+    <scroll-view class='scroll-top' scroll-x scroll-left="{{topWeekScrollLeft}}" scroll-with-animation="true">
+
+      <view wx:for='{{week}}' class='top-week-item {{isActive==index? "active" : ""}}' wx:key='unique' id='{{index}}' bindtap='topTap'>{{item}}</view>
+
+      <view class='palaceholder top-week-item' style='display: inline-block; padding-right: 300rpx;'></view>
+
+    </scroll-view>
+  </view>
+
+  <view class='we-container'>
+    <view class='we-wrapper' bindtouchstart='swiperTouchstart' bindtouchmove='swiperTouchmove' bindtouchend='swiperTouchend' animation='{{animationData}}'>
+
+      <!-- 遍历courses对象得到we-slide的个数 -->
+      <view wx:key='unique' wx:for='{{courses}}' class="we-slide color{{index}}">
+        <scroll-view scroll-y class='course-item-scroll'>
+          <!--  课程item -->
+    
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+</view>

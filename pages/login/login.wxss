@@ -1,0 +1,41 @@
+/* pages/login/login.wxss */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 60rpx;
+}
+.login-form-wrapper {
+  width: 100%;
+  height: 70%;
+}
+.login-form-wrapper > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+}
+.section {
+  padding: 40rpx 0 40rpx 0;
+}
+
+#username,
+#password {
+  border-bottom: solid 0.5px rgba(221, 221, 221, 0.8);
+  height: 100rpx;
+  width: 500rpx;
+}
+button {
+  height: 85rpx;
+  line-height: 85rpx;
+  background-color:#EC7063;
+  color: white;
+}
+
+/* 已经登录的用户进行进行设置样式的面板 */
+

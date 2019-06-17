@@ -1,0 +1,11 @@
+<!--pages/components/courser/courser.wxml-->
+
+<view class='course' wx:key="key" wx:for="{{item}}" wx:for-item="courseObj">
+  <view class='course-top'>
+    <text class='start-time'>{{courseObj.startTime}}</text>
+    <text class="title">{{courseObj.title}}</text>
+  </view>
+  <view class='course-touch-show'>
+    <!-- <text>{{courseObj.endTime}}</text> -->
+  </view>
+</view>
