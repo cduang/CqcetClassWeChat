@@ -1,11 +1,14 @@
 <!--pages/components/courser/courser.wxml-->
 
-<view class='course' wx:key="key" wx:for="{{item}}" wx:for-item="courseObj">
-  <view class='course-top'>
-    <text class='start-time'>{{courseObj.startTime}}</text>
-    <text class="title">{{courseObj.title}}</text>
+<view class='course-wrapper' style='background-color:{{color}}'>
+  <view class='show-course'>
+    <text class='start-time'>{{startTime}}</text>
+    <text class='title'>{{title}}</text>
+    <text class='classRoom'>{{classRoom}}</text>
   </view>
-  <view class='course-touch-show'>
-    <!-- <text>{{courseObj.endTime}}</text> -->
+  <view class='hide-course'>
+    <text class='time-range'>{{startTime}}-{{endTime}}</text>
+    <text class='teacher'>{{teacher}}</text>
+    <text class='edit-btn' bindtap="redirectEditPage">编辑</text>
   </view>
 </view>

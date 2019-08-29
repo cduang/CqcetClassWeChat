@@ -1,298 +1,132 @@
 import weSwiper from "../../lib/weSwiper.js";
 
 const app = getApp();
+const windowHeight = app.globalData.windowHeight;
+const statusBarHeight = app.globalData.statusBarHeight;
 const weSwiperProp = {
   slideLength: 7,
 }
 
 Page({
   data: {
+    courses: [],
     // 记录页面变化
-    currentPage: 0,
-    topWeekScrollLeft: 0,
-    isActive: "",
-    itemWidth: 121,
-    moveBtnInfo: "登录",
-    btnLeft: 20,
-    btnTop: 100,
-    week: {
-      "Moday": "星期一",
-      "Tuesday": "星期二",
-      "Wednesday": "星期三",
-      "Thursday": "星期四",
-      "Friday": "星期五",
-      "Saturday": "星期六",
-      "Sunday": "星期天"
-    },
-    topScrollWeekMap: {
-      "Moday": 0,
-      "Tuesday": 121,
-      "Wednesday": 121 * 2,
-      "Thursday": 121 * 3,
-      "Friday": 121 * 4,
-      "Saturday": 121 * 5,
-      "Sunday": 121 * 6
-    },
-
-    courses: [
-      [{
-        title: "Python开发技术",
+    activePage: 0,
+    timeMapping: {
+      1: {
+        startTime: "8:30",
+        endTime: "10:05"
+      },
+      3: {
         startTime: "10:25",
         endTime: "12:00",
-        clasroom: "1206",
-        color: "#45B39D",
-        date: "星期三",
-        dateRange: "10-12(周))"
       },
-      {
-        title: "Python开发技术",
-        startTime: "10:25",
-        endTime: "12:00",
-        clasroom: "1206",
-        color: "#45B39D",
-        date: "星期三",
-        dateRange: "10-12(周))"
+      5: {
+        startTime: "2:00",
+        endTime: "3:35",
       },
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ], [
-        {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        }, {
-          title: "Python开发技术",
-          startTime: "10:25",
-          endTime: "12:00",
-          clasroom: "1206",
-          color: "#45B39D",
-          date: "星期三",
-          dateRange: "10-12(周))"
-        },
-      ]
+      7: {
+        startTime: "3:55",
+        endTime: "5:30",
+      },
+      9: {
+        startTime: "6:30",
+        endTime: "8:05"
+      },
+      12: {
+        startTime: "8:25",
+        endTime: "10: 00"
+      }
+    },
+    colors: [
+      "#EC7063",
+      "#CB4335",
+      "#E74C3C",
+      "#27AE60",
+      "#1E8449",
+      "#29B6F6",
+      "#EB984E",
+      "#7CB342",
+      "#8BC34A",
+      "#EC7063",
+      "#E57373",
+      "#16A085",
+      "#641E16",
+      "#154360",
+      "#424949",
+      "#17202A",
+      "#0B5345",
+      "#FF8F00",
+      "#F4511E"
     ]
   },
 
   onLoad: function () {
     new weSwiper(weSwiperProp);
-
-    let week = Object.keys(this.data.week);
-    week.pop();
-    week.unshift("Sunday");
-    let currentDay =  week[new Date().getDay()];
-    this.weswiper.slideTo(Object.keys(this.data.week).indexOf(currentDay));
-    this.setData({
-      isActive: currentDay,
-      topWeekScrollLeft: this.data.topScrollWeekMap[currentDay]
-    });
-
-    
-  },
-  onReady: function () {
-    this.setElementWidth("#Moday");
+    // 从Storage加载课程
+    this.loadCourse();
   },
   swiperTouchstart: function (e) {
     this.weswiper.touchstart(e);
-    // touch事件开始时记录
-    this.setData({
-      currentPage: this.weswiper.activeIndex
-    })
   },
   swiperTouchmove: function (e) {
     this.weswiper.touchmove(e);
   },
   swiperTouchend: function (e) {
     this.weswiper.touchend(e);
-    // touch事件结束时比较
-    if (this.data.currentPage !== this.weswiper.activeIndex) {
-      let keys = Object.keys(this.data.week);
-      let activeIndex = this.weswiper.activeIndex;
-      let jumpId = keys[activeIndex];
-      this.setData({
-        topWeekScrollLeft: this.data.topScrollWeekMap[jumpId]
-      })
-      this.setActive(keys[activeIndex])
+    this.setCurrentPage(this.weswiper.activeIndex);
+  },
+  /**
+   * 接收WeekScroll的点击事件并进行page的跳转
+   */
+  toPage: function (e) {
+    this.setCurrentPage(e.detail.toPage);
+  },
+  /**
+   * 设置当前页面
+   * @param pageNuber 0-6
+   */
+  setCurrentPage: function (pageNumber) {
+    this.setData({
+      activePage: pageNumber
+    })
+    this.weswiper.slideTo(pageNumber);
+  },
+  /**
+   * 从Stroage中加载课程
+   */
+  loadCourse: function () {
+    const storage = wx.getStorageSync("courses");
+    let arr = [];
+    for (let key in storage.data) {
+      // 添加上课时间和下课时间,和课程的颜色
+      let weekCourse = storage.data[key];
+      for (let i = 0; i < weekCourse.length; i++) {
+        let randIndex = this.randUnique(0, this.data.colors.length - 1, 1)[0];
+        weekCourse[i].color = this.data.colors[randIndex];
+        weekCourse[i].classTime = this.data.timeMapping[weekCourse[i].classTime];
+      }
+      arr.push(weekCourse);
     }
-  },
-  topTap: function (e) {
-    let targetId = e.currentTarget.id;
-    let keys = Object.keys(this.data.week);
-    let slideToNum = keys.indexOf(targetId);
-
-    this.weswiper.slideTo(slideToNum);
-    // 设置滚动条的位置
     this.setData({
-      topWeekScrollLeft: this.data.topScrollWeekMap[targetId]
-    });
-    // console.log(this.data.itemWidth);    
-    this.setActive(targetId);
-
-  },
-  setElementWidth: function (id) {
-    const query = wx.createSelectorQuery();
-    query.select(id).boundingClientRect((res) => {
-      this.setData({
-        topScrollWeekMap: {
-          "Moday": 0,
-          "Tuesday": res.width,
-          "Wednesday": res.width * 2,
-          "Thursday": res.width * 3,
-          "Friday": res.width * 4,
-          "Saturday": res.width * 5,
-          "Sunday": res.width * 6
-        }
-      });
-    }).exec()
-  },
-  //设置点击后的日期为活动样式
-  setActive: function (target) {
-    this.setData({
-      isActive: target
+      courses: arr
     })
   },
-  
+  /**
+   * 用于产生固定范围的随机数(不能完全保证数值唯一)
+   * @parm start Number 最大数
+   * @parm end Number 最小数
+   * @parm size Number 需要结果数组的length
+   * @return [] 结果数组
+   */
+  randUnique: function (start, end, size) {
+    var allNums = new Array();
+    size = size ? (size > end - start ? end - start : size) : 1
+    for (var i = start, k = 0; i <= end; i++ , k++) {
+      allNums[k] = i;
+    }
+    allNums.sort(function () { return 0.5 - Math.random(); });
+    return allNums.slice(0, size);
+  },
+
 });

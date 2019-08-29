@@ -1,0 +1,5 @@
+<!--components/bar/bar.wxml-->
+
+<view class="container">
+  <view class= "btn user-icon">fa</view>
+</view>

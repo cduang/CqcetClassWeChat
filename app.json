@@ -2,11 +2,16 @@
   "pages": [
     "pages/home/home",
     "pages/login/login",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/edit/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationStyle": "custom"
   },
+  "usingComponents": {
+    "bar": "/components/bar/bar"
+  },
   "sitemapLocation": "sitemap.json"
+ 
 }

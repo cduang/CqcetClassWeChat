@@ -1,0 +1,11 @@
+/* components/bar/bar.wxss */
+@import "icon/icons.wxss";
+
+.container {
+  background: pink;
+}
+.btn {
+  border: solid 1px red;
+  height: 100rpx;
+  width: 100rpx;
+}

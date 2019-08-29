@@ -1,11 +1,13 @@
 <!--pages/login/login.wxml-->
 
-<nav-bar></nav-bar>
+
 
 <view class='container' style='height:{{containerHeight}}px'>
 
-  <view class='login-form-wrapper' wx:if='{{!isLogin}}'>
-    <form formsubmit="loginSubmit">
+    <view class="prompt {{promptErrorStyle}}">
+      <text>{{promptMessage}}</text>  
+    </view>
+  <form bindsubmit="loginSubmit">
       <view class='section' style='padding-bottom: 0'>
         <text class='title'>登录:</text>
       </view>
@@ -15,14 +17,8 @@
       <view class='section'>
         <input id='password' name="password" type='password' placeholder='教务系统密码'></input>
       </view>
-      <view class='section'>
+      <view class="section">
         <button form-type="submit">登录</button>
       </view>
-    </form>
-  </view>
-  
-  <view class='user-info-wrapper' wx:if='{{isLogin}}'>
-    <view>"fuck"</view>
-  </view>
-
+  </form>
 </view>

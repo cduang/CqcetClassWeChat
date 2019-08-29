@@ -3,43 +3,10 @@
 
 .container {
   width: 100%;
-  border: soild 10px darkcyan;
+  height: 100%;
 }
-.scroll-top {
+.course-item-scroll {
   width: 100%;
-  white-space: nowrap;
-}
-.top-week-item {
-  display: inline-block;
-  height: 80rpx;
-  width: 220rpx;
-  line-height: 80rpx;
-  text-align: center;
-  opacity: 0.3;
-}
-.active {
-  opacity: 1;
-  font-size: 50rpx;
+  height: 100%;
 }
 
-.color1 {
-  background: darkcyan;
-}
-.color2 {
-  background: salmon;
-}
-.color3 {
-  background: pink;
-}
-.color4 {
-  background: skyblue;
-}
-.color5 {
-  background:  lightcoral;
-}
-.color6 {
-  background: seagreen;
-}
-.color0{
-  background: seashell;
-}

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "nav-bar": "../../components/navbar/navbar"
+    "course": "../../components/course/course",
+    "week-scroll": "../../components/week/week"
   }
 }

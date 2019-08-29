@@ -1,23 +1,45 @@
 // pages/components/courser/courser.js
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
+    startTime: {
+      type: "String",
+      value: ""
+    },
+    endTime: {
+      type: "String",
+      value: ""
+    },
+    title: {
+      type: "String",
+      value: ""
+    },
+    teacher: {
+      type: "String",
+      value: ""
+    },
+    classRoom: {
+      type: "String",
+      value: ""
+    },
+    color:{
+      type: "String",
+      value: ""
+    }
 
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
-
+    redirectEditPage: function() {
+      wx.redirectTo({
+        url: '/pages/edit/edit'
+      })
+    }
+  },
+  lifetimes: {
+    attached: function() {
+      
+    }
   }
 })

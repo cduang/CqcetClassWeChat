@@ -1,28 +1,44 @@
 <!-- 自定定导航组件 -->
-<nav-bar>
-</nav-bar>
-
+<!-- 判断是否已经登录如果已经登录则选择userIcon 没有就loginIcon -->
+<bar></bar>
 <view class="container">
-
-  <view class='top-week-scroll'>
-    <scroll-view class='scroll-top' scroll-x scroll-left="{{topWeekScrollLeft}}" scroll-with-animation="true">
-
-      <view wx:for='{{week}}' class='top-week-item {{isActive==index? "active" : ""}}' wx:key='unique' id='{{index}}' bindtap='topTap'>{{item}}</view>
-
-      <view class='palaceholder top-week-item' style='display: inline-block; padding-right: 300rpx;'></view>
-
-    </scroll-view>
-  </view>
-
+  <!-- 顶部滚动条 -->
+  <week-scroll active-page="{{activePage}}" bind:touchWeekScroll = "toPage"></week-scroll>
+  
   <view class='we-container'>
     <view class='we-wrapper' bindtouchstart='swiperTouchstart' bindtouchmove='swiperTouchmove' bindtouchend='swiperTouchend' animation='{{animationData}}'>
 
       <!-- 遍历courses对象得到we-slide的个数 -->
-      <view wx:key='unique' wx:for='{{courses}}' class="we-slide color{{index}}">
+      <view wx:key='unique' wx:for='{{courses}}'class="we-slide">
+        <!-- -->
         <scroll-view scroll-y class='course-item-scroll'>
-          <!--  课程item -->
-    
+          <!--  课程item 
+             properties:
+                1. startTime
+                2. endTime
+                3. title
+                4. teacher
+                5. classRoom
+          -->
+          <course
+          wx:for="{{item}}"
+          wx:key="key"
+          wx:for-item="course"
+          start-time="{{course.classTime.startTime}}" 
+          end-time="{{course.classTime.endTime}}" 
+          title="{{course.courseName}}"
+          class-room="{{course.classRoom}}"
+          color="{{course.color}}"
+          teacher="{{course.teacher}}">
+          </course>
+
+          <!-- 没有课程的展示页面 -->
+          <view wx:if="{{item.length == 0}}">
+            没有课程！
+          </view>
+        
         </scroll-view>
+  
       </view>
     </view>
   </view>

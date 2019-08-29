@@ -1,0 +1,19 @@
+/* components/week/week.wxss */
+.week-scorll {
+  height: 100rpx;
+  white-space: nowrap;
+}
+.day {
+  width: 180rpx;
+  display: inline-block;
+  line-height: 100rpx;
+  text-align: center;
+  color: darkgray;
+  opacity: 0.5
+}
+.active {
+  opacity: 1;
+  font-size: 50rpx;
+  color: black;
+  font-weight: 50rpx;
+}
