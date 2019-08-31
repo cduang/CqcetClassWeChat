@@ -1,9 +1,6 @@
 <!--pages/login/login.wxml-->
-
-
-
+<bar mode="login" title=""> </bar>
 <view class='container' style='height:{{containerHeight}}px'>
-
     <view class="prompt {{promptErrorStyle}}">
       <text>{{promptMessage}}</text>  
     </view>

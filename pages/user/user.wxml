@@ -1,0 +1,20 @@
+<bar mode="user" title="HOME" color="#26C6DA" font-color="#FDFEFE"></bar>
+
+<view class="container">
+  <view class="user-image"></view>
+
+  <view class="option-warp">
+    <view class="option-item-group">
+      <view class="option-item">Think You Can Wait</view>
+      <view class="option-item">调整作息时间</view>
+    </view>
+    <view class="option-item-group">
+      <view class="option-item">分享给朋友</view>
+      <view class="option-item">关于</view>
+    </view>
+    <view class="option-item-group">
+      <view class="option-item quit" bindtap="logout">注销</view>
+    </view>
+  </view>
+
+</view>

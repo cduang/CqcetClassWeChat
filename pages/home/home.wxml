@@ -1,13 +1,18 @@
 <!-- 自定定导航组件 -->
-<!-- 判断是否已经登录如果已经登录则选择userIcon 没有就loginIcon -->
-<bar></bar>
-<view class="container">
-  <!-- 顶部滚动条 -->
-  <week-scroll active-page="{{activePage}}" bind:touchWeekScroll = "toPage"></week-scroll>
-  
-  <view class='we-container'>
-    <view class='we-wrapper' bindtouchstart='swiperTouchstart' bindtouchmove='swiperTouchmove' bindtouchend='swiperTouchend' animation='{{animationData}}'>
 
+<bar title="CQCET课程表" mode="home" isLogin="{{isLogin}}"></bar>
+
+<view class="course-panles-wrapper" style="height:{{coursePanleHeight}}px;">
+  <!-- 顶部滚动条 -->
+  <week-scroll wx:if="{{isLogin}}" active-page="{{activePage}}" bind:touchWeekScroll = "toPage"></week-scroll>
+
+  <view class="tips" wx:if="{{!isLogin}}">
+    <view class="tips-content">暂时没有课程请点击上角登录账号并获取课程
+  </view>
+  </view>
+  
+  <view class='we-container' wx:if="{{isLogin}}">
+    <view class='we-wrapper' bindtouchstart='swiperTouchstart' bindtouchmove='swiperTouchmove' bindtouchend='swiperTouchend' animation='{{animationData}}'>
       <!-- 遍历courses对象得到we-slide的个数 -->
       <view wx:key='unique' wx:for='{{courses}}'class="we-slide">
         <!-- -->
@@ -32,13 +37,7 @@
           teacher="{{course.teacher}}">
           </course>
 
-          <!-- 没有课程的展示页面 -->
-          <view wx:if="{{item.length == 0}}">
-            没有课程！
-          </view>
-        
         </scroll-view>
-  
       </view>
     </view>
   </view>

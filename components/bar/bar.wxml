@@ -1,5 +1,8 @@
 <!--components/bar/bar.wxml-->
 
-<view class="container">
-  <view class= "btn user-icon">fa</view>
+<view class="navigation-bar" style="height:{{barHeight}}px; background:{{color}};">
+  <view class="action-icon" style="top:{{titleMargin}}px;" bindtap="_toPage">
+   <image src="{{iconImage}}" mode="aspectFit" style="height: 36px; width: 36px;"></image>
+  </view>
+  <view class="title" style="top:{{titleMargin}}px; color:{{fontColor}};">{{title}}</view>
 </view>

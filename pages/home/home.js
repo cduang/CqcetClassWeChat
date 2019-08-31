@@ -1,15 +1,15 @@
 import weSwiper from "../../lib/weSwiper.js";
 
 const app = getApp();
-const windowHeight = app.globalData.windowHeight;
-const statusBarHeight = app.globalData.statusBarHeight;
 const weSwiperProp = {
   slideLength: 7,
 }
 
 Page({
   data: {
+    coursePanleHeight: app.globalData.coursePanleHeight,
     courses: [],
+    isLogin: false,
     // 记录页面变化
     activePage: 0,
     timeMapping: {
@@ -98,6 +98,12 @@ Page({
   loadCourse: function () {
     const storage = wx.getStorageSync("courses");
     let arr = [];
+    // 判断本地存是否有数据,如果有就会设置登录状态为true
+    if (storage.data){
+      this.setData({
+        isLogin: true
+      })
+    }
     for (let key in storage.data) {
       // 添加上课时间和下课时间,和课程的颜色
       let weekCourse = storage.data[key];

@@ -22,7 +22,7 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
@@ -33,20 +33,23 @@ App({
       }
     })
     /**
-     * 获取设备状态栏高度
+     * 计算navBar的高度
      */
     wx.getSystemInfo({
       success: (res) => {
-        this.globalData.statusBarHeight = res.statusBarHeight;
-        this.globalData.windowHeight = res.windowHeight;
-        this.globalData.windowWidth = res.windowWidth;
+        const menuButtonClientRect = wx.getMenuButtonBoundingClientRect()
+        const menuButtonTop = menuButtonClientRect.top;
+        const menuButtonHeight = menuButtonClientRect.height;
+        const statusHeight = res.statusBarHeight;
+        this.globalData.navBarHeight = statusHeight +
+          menuButtonHeight + ((menuButtonTop - statusHeight) * 2);
+        this.globalData.navTitleMargin = menuButtonTop;
+        this.globalData.coursePanleHeight = res.windowHeight - this.globalData.navBarHeight - 80;
+        this.globalData.coursePanleWdith = res.windowWidth;
       }
     })
   },
   globalData: {
-    userInfo: null,
-    statusBarHeight: 20,
-    windowHeight: 0,
-    windowWidth: 0
+    userInfo: null
   }
 })

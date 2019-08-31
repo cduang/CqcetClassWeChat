@@ -6,13 +6,16 @@ Page({
     containerHeight: 0,
     promptMessage: "如果您是首次使用本小程序,建议您一次确认密码正确再进行登录。如果密码输入错误再重新输入,会占用您较多的时间，本程序在首次登录的时候获得课表可能占用时间比较长。",
     promptErrorStyle: ""
-
   },
   onLoad: function (options) {
     this.setData({
       containerHeight: app.globalData.windowHeight - (app.globalData.statusBarHeight + 46)
     })
   },
+  /**
+   * 向后台发送请求以获取课程
+   * @parm e 包含了用户名和密码的事件对象
+   */
 
   loginSubmit: function (e) {
     // 验证程序
@@ -23,7 +26,7 @@ Page({
   // 请求后台后的课程表的函数请求成功会将数据数据保存在本地Storage中
   requestCourse: function (user, that) {
     wx.request({
-      url: "http://localhost:8080/class_schedule_war_exploded/UserServlet",
+      url: "https://wechat.classschedule.top:8443/UserServlet",
       header: {
         "content-type": "application/x-www-form-urlencoded;charset=utf-8"
       },
